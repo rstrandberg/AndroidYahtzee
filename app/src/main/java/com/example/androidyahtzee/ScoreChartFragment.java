@@ -124,7 +124,7 @@ public class ScoreChartFragment extends Fragment {
     public void addScoreToChart(String scoreType, int value){
         TableRow tr = mRowMap.get(scoreType);
         final TextView tv = (TextView)tr.getChildAt(1);
-        tv.setText(value);
+        tv.setText(Integer.toString(value));
         tr.setClickable(false);
         Toast.makeText(getActivity(), R.string.score_added, Toast.LENGTH_SHORT).show();
     }

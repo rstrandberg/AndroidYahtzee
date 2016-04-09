@@ -99,7 +99,8 @@ public class IngameFragment extends Fragment {
     public void onButtonPressed(View v) {
         if (mListener != null) {
             DiceRoll diceRoll = mListener.onRollDice();
-            mButtonRoll.setText(R.string.roll + diceRoll.getRollsLeft());
+            String text = getResources().getString(R.string.roll) +" "+ Integer.toString(diceRoll.getRollsLeft());
+            mButtonRoll.setText(text);
             if(diceRoll.getRollsLeft() <= 0){
                 mButtonRoll.setEnabled(false);
             }
@@ -148,7 +149,8 @@ public class IngameFragment extends Fragment {
             mDiceFragment.updateDieImage(index++, dieState);
         }
         if(diceRoll.getRollsLeft() > 0){
-            mButtonRoll.setText("Roll Dice " + diceRoll.getRollsLeft());
+            String text = getResources().getString(R.string.roll) + " " + Integer.toString(diceRoll.getRollsLeft());
+            mButtonRoll.setText(text);
             mButtonRoll.setEnabled(true);
         }
     }
