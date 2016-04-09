@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Yahtzee</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Welcome to generic Yahtzee</string>
+    <string name="num_player">Number of Players</string>
+    <string name="button_start">Start Game</string>
+    <string name="player1">Player1</string>
+    <string name="player2">Player2</string>
+    <string name="player3">Player3</string>
+    <string name="player4">Player4</string>
+    <string name="score_ones">Ones</string>
+    <string name="score_twos">Twos</string>
+    <string name="score_threes">Threes</string>
+    <string name="score_fours">Fours</string>
+    <string name="score_fives">Fives</string>
+    <string name="score_sixes">Sixes</string>
+    <string name="score_bonus">Bonus</string>
+    <string name="score_pair">Pair</string>
+    <string name="score_two_pairs">Two Pairs</string>
+    <string name="score_three_of_a_kind">Three of a kind</string>
+    <string name="score_four_of_a_kind">Four of a kind</string>
+    <string name="score_small_straight">Small straight</string>
+    <string name="score_large_straight">Large straight</string>
+    <string name="score_house">House</string>
+    <string name="score_chance">Chance</string>
+    <string name="score_yahtzee">Yahtzee</string>
+    <string name="score_added">Score added</string>
+    <string name="roll">Roll Dice</string>
+    <string-array name="score_identifiers">
+        <item>ONES</item>
+        <item>TWOS</item>
+        <item>THREES</item>
+        <item>FOURS</item>
+        <item>FIVES</item>
+        <item>SIXES</item>
+        <item>BONUS</item>
+        <item>PAIR</item>
+        <item>TWO_PAIRS</item>
+        <item>THREE_OF_A_KIND</item>
+        <item>FOUR_OF_A_KIND</item>
+        <item>SMALL_STRAIGHT</item>
+        <item>LARGE_STRAIGHT</item>
+        <item>HOUSE</item>
+        <item>CHANCE</item>
+        <item>YAHTZEE</item>
+    </string-array>
+</resources>
