@@ -121,7 +121,7 @@ public class AndroidYahtzee {
             Collections.sort(finalScores, new Comparator<Pair<String, Integer>>() {
                @Override
                 public int compare(final Pair<String, Integer> o1, final Pair<String, Integer>o2) {
-                   return (o1.second < o2.second) ? -1 : (o1.second > o2.second) ? 1 : 0;
+                   return (o1.second < o2.second) ? 1 : (o1.second > o2.second) ? -1 : 0;
                }
             });
         }
