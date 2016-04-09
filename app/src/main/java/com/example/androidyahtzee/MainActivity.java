@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements
                 alertDialogBuilder.setTitle("Game has ended");
                 String message = "Results:";
                 for(Pair<String, Integer> pair : game.getFinalScores()){
-                    message += String.format("%n%-30s -%3d", pair.first, pair.second);
+                    message += String.format("%n%-30s %3d", pair.first, pair.second);
                 }
                 alertDialogBuilder.setMessage(message);
                 alertDialogBuilder.setPositiveButton(R.string.button_new_game, new DialogInterface.OnClickListener() {
