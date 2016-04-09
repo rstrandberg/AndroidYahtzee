@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Player Name"
+            android:text="@string/placeholder_player"
             android:id="@+id/playerNameField"
             android:layout_gravity="center_horizontal"
             android:textStyle="bold"
@@ -32,7 +32,7 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:contextClickable="true"
                 android:stretchColumns="1"
                 android:id="@+id/scoreTableLayout">

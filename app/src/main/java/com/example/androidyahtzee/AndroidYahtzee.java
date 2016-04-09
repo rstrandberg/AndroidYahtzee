@@ -31,7 +31,7 @@ public class AndroidYahtzee {
     }
 
     public DiceRoll rollDice(){
-        List<DieState> dList = new ArrayList<DieState>(5);
+        List<DieState> dList = new ArrayList<>(5);
         Player p = game.getCurrentPlayer();
         p.throwDice();
         for(Die d: game.getDice()){
@@ -56,19 +56,19 @@ public class AndroidYahtzee {
         boolean hasBonus = game.getScoreChart(p).hasBonus();
         GameState state = null;
         if(p.saveScore(type)){
-            List<ChartEntry> entries = new ArrayList<ChartEntry>();
+            List<ChartEntry> entries = new ArrayList<>();
             ChartEntry ent = new ChartEntry(scoreType, game.getScoreChart(p).getValueForType(type));
             entries.add(ent);
             if(!hasBonus && game.getScoreChart(p).hasBonus()){
                 ent = new ChartEntry(ScoreType.BONUS.name(),ScoreType.BONUS.getValue());
                 entries.add(ent);
             }
-            List<ScoreChart> scoreCharts = new ArrayList<ScoreChart>(1);
+            List<ScoreChart> scoreCharts = new ArrayList<>(1);
             scoreCharts.add(new ScoreChart(p.getName(), entries));
 
             p.endTurn();
             p = game.getCurrentPlayer();
-            List<DieState> dieStates = new ArrayList<DieState>(5);
+            List<DieState> dieStates = new ArrayList<>(5);
             for(int i = 0; i < 5; i++){
                 dieStates.add(new DieState(-1, false));
             }
@@ -81,15 +81,15 @@ public class AndroidYahtzee {
     public GameState getGameState(){
         Player player = game.getCurrentPlayer();
 
-        List<DieState> dList = new ArrayList<DieState>(5);
+        List<DieState> dList = new ArrayList<>(5);
         for(Die d: game.getDice()){
             dList.add(new DieState(d.getValue(), d.isHeld()));
         }
         DiceRoll diceRoll = new DiceRoll(player.getRollsLeft(), dList);
 
-        List<ScoreChart> scoreCharts = new ArrayList<ScoreChart>();
+        List<ScoreChart> scoreCharts = new ArrayList<>();
         for(Player p: game.getPlayers()){
-            List<ChartEntry> entries = new ArrayList<ChartEntry>();
+            List<ChartEntry> entries = new ArrayList<>();
             for(Score s :game.getScoreChart(p).getScoresList()){
                 ChartEntry e = new ChartEntry(s.getType().name(), s.getValue());
                 entries.add(e);

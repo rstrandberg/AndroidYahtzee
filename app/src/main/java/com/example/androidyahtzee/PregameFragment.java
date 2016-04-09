@@ -37,10 +37,8 @@ public class PregameFragment extends Fragment {
      *
      * @return A new instance of fragment PregameFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static PregameFragment newInstance() {
-        PregameFragment fragment = new PregameFragment();
-        return fragment;
+        return new PregameFragment();
     }
 
     @Override
@@ -51,7 +49,6 @@ public class PregameFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pregame, container, false);
 
         final Button buttonStart = (Button) view.findViewById(R.id.buttonStart);
@@ -69,7 +66,6 @@ public class PregameFragment extends Fragment {
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(View v) {
         if (mListener != null) {
             int numPlayers = Integer.parseInt(numPlayerSelector.getText().toString());
@@ -115,13 +111,8 @@ public class PregameFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onStartGame(String[] playerNames, int numPlayers);
     }
 }

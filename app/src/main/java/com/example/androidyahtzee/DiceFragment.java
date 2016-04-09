@@ -1,8 +1,6 @@
 package com.example.androidyahtzee;
 
 import android.content.Context;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -39,7 +37,6 @@ public class DiceFragment extends Fragment {
      *
      * @return A new instance of fragment DiceFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static DiceFragment newInstance() {
         DiceFragment fragment = new DiceFragment();
         Bundle args = new Bundle();
@@ -51,7 +48,7 @@ public class DiceFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mDiceMap = new HashMap<Integer, ImageButton>();
+        mDiceMap = new HashMap<>();
     }
 
     @Override
@@ -118,7 +115,10 @@ public class DiceFragment extends Fragment {
     }
 
     /**
-     * Interface for cross Activity/Fragment communication
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
      */
     public interface OnFragmentInteractionListener {
         DieState onDiceClicked(int index);

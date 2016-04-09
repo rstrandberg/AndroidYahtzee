@@ -4,8 +4,6 @@
     android:layout_height="match_parent"
     tools:context=".PregameFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,14 +38,13 @@
             android:ems="10"
             android:id="@+id/numPlayerSelector"
             android:gravity="end"
-            android:numeric="integer"
             android:text="2"
             android:width="40dp"
             android:layout_alignTop="@+id/textView2"
             android:layout_alignRight="@+id/tableLayout"
             android:layout_alignEnd="@+id/tableLayout"
-            android:editable="false"
-            android:clickable="true" />
+            android:clickable="true"
+            android:inputType="number" />
 
         <TableLayout
             android:layout_width="match_parent"

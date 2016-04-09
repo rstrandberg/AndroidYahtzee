@@ -29,6 +29,7 @@
     <string name="score_yahtzee">Yahtzee</string>
     <string name="score_added">Score added</string>
     <string name="roll">Roll Dice</string>
+    <string name="placeholder_player">Player Name</string>
     <string-array name="score_identifiers">
         <item>ONES</item>
         <item>TWOS</item>

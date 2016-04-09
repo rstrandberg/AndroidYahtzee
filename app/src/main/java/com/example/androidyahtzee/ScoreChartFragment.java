@@ -23,11 +23,8 @@ import java.util.Map;
  * create an instance of this fragment.
  */
 public class ScoreChartFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PLAYER_NAME = "playerName";
 
-    // TODO: Rename and change types of parameters
     private String mPlayerName;
 
     private OnFragmentInteractionListener mListener;
@@ -45,7 +42,6 @@ public class ScoreChartFragment extends Fragment {
      * @param playerName PlayerName.
      * @return A new instance of fragment ScoreChartFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static ScoreChartFragment newInstance(String playerName) {
         ScoreChartFragment fragment = new ScoreChartFragment();
         Bundle args = new Bundle();
@@ -60,8 +56,8 @@ public class ScoreChartFragment extends Fragment {
         if (getArguments() != null) {
             mPlayerName = getArguments().getString(ARG_PLAYER_NAME);
         }
-        mScoreEntryMap = new HashMap<Integer, String>();
-        mRowMap = new HashMap<String, TableRow>();
+        mScoreEntryMap = new HashMap<>();
+        mRowMap = new HashMap<>();
     }
 
     @Override
@@ -91,7 +87,6 @@ public class ScoreChartFragment extends Fragment {
         }
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onRowClicked(View v) {
         if (mListener != null) {
             String scoreType = mScoreEntryMap.get(v.getId());
@@ -121,20 +116,15 @@ public class ScoreChartFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onScoreClicked(String scoreType);
     }
 
     public void addScoreToChart(String scoreType, int value){
         TableRow tr = mRowMap.get(scoreType);
         final TextView tv = (TextView)tr.getChildAt(1);
-        tv.setText(value+"");
+        tv.setText(value);
         tr.setClickable(false);
         Toast.makeText(getActivity(), R.string.score_added, Toast.LENGTH_SHORT).show();
     }

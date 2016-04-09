@@ -91,16 +91,13 @@ public class MainActivity extends AppCompatActivity implements
     //DiceFragment interaction
     @Override
     public DieState onDiceClicked(int index) {
-        //TODO toggle die hold
         return game.holdDie(index);
     }
 
     @Override
     public void onScoreClicked(String scoreType) {
         GameState state = game.saveScore(scoreType);
-        if (state == null) {
-            return;
-        }else {
+        if (state != null) {
             ScoreChart chart = state.getScoreCharts().get(0);
             ScoreChartFragment scf = ingameFragment.getScoreChartFragment(chart.getPlayer());
             for(ChartEntry entry : chart.getEntries()){
