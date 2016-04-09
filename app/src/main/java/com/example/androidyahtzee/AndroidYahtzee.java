@@ -1,5 +1,7 @@
 package com.example.androidyahtzee;
 
+import android.support.v4.util.Pair;
+
 import com.example.androidyahtzee.dto.ChartEntry;
 import com.example.androidyahtzee.dto.DiceRoll;
 import com.example.androidyahtzee.dto.DieState;
@@ -12,6 +14,8 @@ import com.example.yahtzee.score.Score;
 import com.example.yahtzee.score.ScoreType;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class AndroidYahtzee {
@@ -106,5 +110,21 @@ public class AndroidYahtzee {
             dValues[index++] = d.getValue();
         }
         return dValues;
+    }
+
+    public List<Pair<String, Integer>> getFinalScores(){
+        List<Pair<String, Integer>> finalScores = new ArrayList<>(4);
+        if(!game.isActive()){
+            for(Player p : game.getPlayers()){
+                finalScores.add(Pair.create(p.getName(), game.getScoreChart(p).getFinalScore()));
+            }
+            Collections.sort(finalScores, new Comparator<Pair<String, Integer>>() {
+               @Override
+                public int compare(final Pair<String, Integer> o1, final Pair<String, Integer>o2) {
+                   return (o1.second < o2.second) ? -1 : (o1.second > o2.second) ? 1 : 0;
+               }
+            });
+        }
+        return finalScores;
     }
 }

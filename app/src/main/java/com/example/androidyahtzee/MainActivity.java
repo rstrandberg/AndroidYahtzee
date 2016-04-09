@@ -1,7 +1,10 @@
 package com.example.androidyahtzee;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.util.Pair;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -107,8 +110,40 @@ public class MainActivity extends AppCompatActivity implements
                 ingameFragment.swapScoreChart(chart.getPlayer(), state.getCurrentPlayer());
                 ingameFragment.setDiceRoll(state.getDiceRoll());
             }else{
-                //TODO game has ended. Display game results
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                alertDialogBuilder.setTitle("Game has ended");
+                String message = "Results:";
+                for(Pair<String, Integer> pair : game.getFinalScores()){
+                    message += String.format("%n%-30s -%3d", pair.first, pair.second);
+                }
+                alertDialogBuilder.setMessage(message);
+                alertDialogBuilder.setPositiveButton(R.string.button_new_game, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        onStartNewGame();
+                        dialog.dismiss();
+                    }
+                });
+                alertDialogBuilder.setNegativeButton(R.string.button_end_game, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        onEndGame();
+                    }
+                });
+                AlertDialog dialog = alertDialogBuilder.create();
+                dialog.show();
             }
         }
+    }
+
+    private void onStartNewGame(){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.remove(ingameFragment);
+        transaction.add(R.id.fragment_container, pregameFragment);
+        transaction.commit();
+    }
+    private void onEndGame(){
+        this.finish();
     }
 }

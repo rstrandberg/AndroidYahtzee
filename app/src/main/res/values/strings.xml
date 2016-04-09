@@ -7,6 +7,8 @@
     <string name="welcome">Welcome to generic Yahtzee</string>
     <string name="num_player">Number of Players</string>
     <string name="button_start">Start Game</string>
+    <string name="button_new_game">New Game</string>
+    <string name="button_end_game">End Game</string>
     <string name="player1">Player1</string>
     <string name="player2">Player2</string>
     <string name="player3">Player3</string>
